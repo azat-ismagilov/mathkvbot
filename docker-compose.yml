@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  smallreadbot:
+    image: aismagilov/mathkvbot
+    labels:
+      - "com.centurylinklabs.watchtower.scope=myscope"
+    restart: always
+    volumes:
+      - ./config.py:/usr/src/app/creds.py
+      - ./token.json:/usr/src/app/token.json
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300 --scope myscope
+    labels:
+      - "com.centurylinklabs.watchtower.scope=myscope"
