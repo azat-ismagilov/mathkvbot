@@ -4,7 +4,7 @@ services:
   smallreadbot:
     image: aismagilov/mathkvbot
     labels:
-      - "com.centurylinklabs.watchtower.scope=myscope"
+      - "com.centurylinklabs.watchtower.scope=mathkvbot"
     restart: always
     volumes:
       - ./config.py:/usr/src/app/creds.py
@@ -14,6 +14,6 @@ services:
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 300 --scope myscope
+    command: --interval 300 --scope mathkvbot
     labels:
-      - "com.centurylinklabs.watchtower.scope=myscope"
+      - "com.centurylinklabs.watchtower.scope=mathkvbot"
