@@ -472,4 +472,4 @@ def escape(text):
     return text
 
 
-bot.polling(none_stop=True, interval=0)
+bot.infinity_polling()
