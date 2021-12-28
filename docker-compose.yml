@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  smallreadbot:
+  mathkvbot:
     image: aismagilov/mathkvbot
     labels:
       - "com.centurylinklabs.watchtower.scope=mathkvbot"
     restart: always
     volumes:
-      - ./config.py:/usr/src/app/creds.py
+      - ./config.py:/usr/src/app/config.py
       - ./token.json:/usr/src/app/token.json
 
   watchtower:
