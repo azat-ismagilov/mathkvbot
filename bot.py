@@ -24,6 +24,10 @@ credentials = Credentials.from_authorized_user_file(
     ],
 )
 
+if not credentials or not credentials.valid:
+    if credentials and credentials.expired and credentials.refresh_token:
+        credentials.refresh(Request())
+
 service = build("sheets", "v4", credentials=credentials)
 
 
